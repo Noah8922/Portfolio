@@ -62,7 +62,7 @@ const workBtnContainer = document.querySelector(".work__categories");
 const projectContainer = document.querySelector(".work__projects");
 const projects = document.querySelectorAll(".project");
 workBtnContainer.addEventListener("click", (e) => {
-  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  const filter = e.target.dataset.filter;
   if (filter == null) {
     return;
   }
@@ -86,6 +86,26 @@ workBtnContainer.addEventListener("click", (e) => {
     });
     projectContainer.classList.remove("anim-out");
   }, 300);
+});
+
+// copy the email address when click icon
+const address = document.querySelector(".contact__email").innerHTML;
+const copyBox = document.querySelector(".contact__copybox");
+const copyBtn = document.querySelector(".copyBtn");
+copyBtn.addEventListener("click", () => {
+  copyBox.classList.add("copied");
+  // copy the email address on clip board
+  const target = document.createElement("input");
+  target.value = address;
+  document.body.appendChild(target);
+  target.select();
+  document.execCommand("copy");
+  document.body.removeChild(target);
+
+  // CSS part
+  setTimeout(() => {
+    copyBox.classList.remove("copied");
+  }, 2000);
 });
 
 function scrollIntoView(selector) {

@@ -473,6 +473,7 @@ p {
 /* Contact */
 #contact {
   background-color: var(--color-olive);
+  position: relative;
 }
 
 .contact__title,
@@ -500,6 +501,28 @@ p {
 .contact__address i:hover {
   transform: scale(1.1);
   color: var(--color-yellow);
+}
+
+.contact__copybox {
+  position: absolute;
+  right: 690px;
+  bottom : 175px;
+  padding: 10px;
+  border-radius: var(--size-border-radius);
+  background-color: var(--color-dark-olive);
+  color: var(--color-white);
+  display: none;
+}
+
+.contact__copybox.copied {
+  position: absolute;
+  right: 690px;
+  bottom : 175px;
+  padding: 10px;
+  border-radius: var(--size-border-radius);
+  background-color: var(--color-dark-olive);
+  color: var(--color-white);
+  display: block;
 }
 
 .contact__links {
